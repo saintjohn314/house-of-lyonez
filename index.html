@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>House Of Lyonez · Original Paintings by Esmeralda</title>
+<meta name="description" content="Original hand-painted artwork by Esmeralda. Art for all who have a heart to perceive; vision or no vision.">
+<meta property="og:title" content="House Of Lyonez">
+<meta property="og:description" content="Art for all who have a heart to perceive; vision or no vision.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/lion-sunflower.jpg">
+<link rel="icon" href="images/lion-sunflower.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">House Of Lyonez</a>
+    <div class="nav-links">
+      <a href="#gallery">Gallery</a>
+      <a href="#info" class="hide-sm">Shipping</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Original paintings by Esmeralda</p>
+    <h1>House Of Lyonez</h1>
+    <div class="rule"></div>
+    <p class="tagline">Art for all who have a heart to perceive; vision or no vision.</p>
+    <a href="#gallery" class="btn" id="explore-btn">View the Collection</a>
+  </div>
+</header>
+
+<main>
+  <section id="gallery" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>The Collection</h2>
+        <p>Every piece is a one-of-a-kind original. Tap a painting to see it full size.</p>
+      </div>
+      <div class="filters" id="filters" role="toolbar" aria-label="Filter by canvas size"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section id="info" class="section alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2>Shipping &amp; Details</h2>
+      </div>
+      <div class="info-grid">
+        <div class="info">
+          <h3>One of a Kind</h3>
+          <p>Every painting is an original, hand-painted by Esmeralda. There are no prints or copies, and once a piece sells it's gone.</p>
+        </div>
+        <div class="info">
+          <h3>Secure Checkout</h3>
+          <p>Payment goes through PayPal, so you can pay with your PayPal balance or a card. Your payment details never touch this site.</p>
+        </div>
+        <div class="info">
+          <h3>Ships in 3–5 Days</h3>
+          <p>Shipping is $5 for small works and $10 for 8×10 and larger. Each painting is carefully wrapped so it arrives safely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="wrap about">
+      <div class="section-head"><h2>About the Artist</h2></div>
+      <blockquote>"Hello, my name is Esmeralda, and this is my collection of art that I've made to share with the world."</blockquote>
+      <p>I am a self-taught artist who loves to paint and enjoys the traditional values of life. Through my brushwork and vision, I strive to capture moments of peace, beauty, and sincerity that resonate deep within the soul.</p>
+      <p>Thanks for visiting my page! Your support means the world to a creator who values true connection through art.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section alt">
+    <div class="wrap">
+      <div class="section-head center">
+        <h2>Get in Touch</h2>
+        <p>Questions about a piece, or interested in a custom painting? Reach out directly.</p>
+      </div>
+      <div class="contact">
+        <a href="https://www.instagram.com/houseoflyonez/" target="_blank" rel="noopener noreferrer">
+          <span class="c-label">Instagram</span><span class="c-val">@houseoflyonez</span>
+        </a>
+        <a href="https://www.instagram.com/hyperspektiv/" target="_blank" rel="noopener noreferrer">
+          <span class="c-label">Instagram</span><span class="c-val">@hyperspektiv</span>
+        </a>
+        <a href="mailto:Esmegoof06@aol.com">
+          <span class="c-label">Email</span><span class="c-val">Esmegoof06@aol.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p class="brand">House Of Lyonez</p>
+    <p><a href="https://www.instagram.com/houseoflyonez/" target="_blank" rel="noopener noreferrer">@houseoflyonez</a> · <a href="https://www.instagram.com/hyperspektiv/" target="_blank" rel="noopener noreferrer">@hyperspektiv</a></p>
+    <p class="fine">&copy; <span id="year">2026</span> House Of Lyonez. All artwork and images are the property of the artist. All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Painting preview" hidden>
+  <button class="lb-close" id="lb-close" aria-label="Close">&times;</button>
+  <figure>
+    <img id="lb-img" src="" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+</div>
+
+<script src="paintings.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
