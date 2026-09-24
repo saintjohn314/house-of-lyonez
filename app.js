@@ -1,7 +1,15 @@
 (function () {
   'use strict';
 
+  // Anti-clickjacking: refuse to run inside another site's frame.
+  if (window.top !== window.self) {
+    document.documentElement.style.display = 'none';
+    try { window.top.location = window.self.location.href; } catch (e) {}
+    return;
+  }
+
   var PAYPAL_EMAIL = 'mmmeeezzzyyy@protonmail.com';
+  var SITE_URL = 'https://saintjohn314.github.io/house-of-lyonez/';
   var paintings = Array.isArray(window.PAINTINGS) ? window.PAINTINGS : [];
 
   // Guarantee each painting appears only once.
@@ -44,7 +52,9 @@
       amount: Number(p.price).toFixed(2),
       shipping: Number(p.shipping).toFixed(2),
       currency_code: 'USD',
-      no_shipping: '2' // require a shipping address
+      no_shipping: '2', // require a shipping address
+      return: SITE_URL + 'thanks.html',
+      cancel_return: SITE_URL + '#gallery'
     });
     return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
   }

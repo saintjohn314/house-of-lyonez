@@ -17,4 +17,4 @@ All paintings are listed in **`paintings.js`**. Each line is one painting:
 - **Remove a painting:** delete its line.
 
 Checkout uses PayPal "Buy Now" links to the shop's PayPal account.
-Always confirm the amount received in PayPal matches the listed price before shipping.
+Before shipping, confirm the amount paid matches the total in **`PRICE-CHECK.md`** (look up the Item number from the PayPal email).
