@@ -9,7 +9,7 @@
   }
 
   var PAYPAL_EMAIL = 'mmmeeezzzyyy@protonmail.com';
-  var SITE_URL = 'https://saintjohn314.github.io/house-of-lyonez/';
+  var SITE_URL = location.origin + location.pathname.replace(/[^\/]*$/, '');
   var paintings = Array.isArray(window.PAINTINGS) ? window.PAINTINGS : [];
 
   // Guarantee each painting appears only once.
