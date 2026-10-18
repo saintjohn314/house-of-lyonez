@@ -20,16 +20,34 @@
     return true;
   });
 
+  function inCat(p, c) {
+    return c === 'tactile' ? p.tactile === true : (Array.isArray(p.cats) && p.cats.indexOf(c) !== -1);
+  }
+
+  // Sort by price, most expensive first. Ties go in category order
+  // (flowers, anatomy, tactile, surreal), then keep the order in paintings.js.
+  var CAT_ORDER = ['flowers', 'anatomy', 'tactile', 'surreal'];
+  function catRank(p) {
+    for (var i = 0; i < CAT_ORDER.length; i++) if (inCat(p, CAT_ORDER[i])) return i;
+    return CAT_ORDER.length;
+  }
+  paintings = paintings
+    .map(function (p, i) { return { p: p, i: i }; })
+    .sort(function (a, b) {
+      return (Number(b.p.price) - Number(a.p.price)) || (catRank(a.p) - catRank(b.p)) || (a.i - b.i);
+    })
+    .map(function (x) { return x.p; });
+
   var grid = document.getElementById('grid');
   var filtersEl = document.getElementById('filters');
 
-  // Size groups for the filter chips (in display order).
+  // Category filter chips (in display order). Set each painting's cats / tactile in paintings.js.
   var groups = [
     { key: 'all', label: 'All', test: function () { return true; } },
-    { key: 'large', label: 'Large', test: function (p) { return /^(10x20|12x16|11x14|14x11)/.test(p.size); } },
-    { key: 'medium', label: 'Medium', test: function (p) { return /^(10x8|9x12|12x9)/.test(p.size); } },
-    { key: 'small', label: 'Small', test: function (p) { return /^5x7/.test(p.size); } },
-    { key: 'mini', label: 'Mini', test: function (p) { return /^4x/.test(p.size); } }
+    { key: 'flowers', label: 'Flowers', test: function (p) { return inCat(p, 'flowers'); } },
+    { key: 'anatomy', label: 'Anatomy', test: function (p) { return inCat(p, 'anatomy'); } },
+    { key: 'tactile', label: 'Tactile', test: function (p) { return inCat(p, 'tactile'); } },
+    { key: 'surreal', label: 'Surreal', test: function (p) { return inCat(p, 'surreal'); } }
   ];
 
   function el(tag, attrs, text) {
@@ -39,9 +57,12 @@
     return node;
   }
 
-  // Canvas sizes are kept in paintings.js for sorting, but not shown on the site.
-  function canvasNote(p) {
-    return p.thick ? 'Thick canvas' : '';
+  // Small label under the title. Canvas sizes are kept in paintings.js but not shown on the site.
+  function cardNote(p) {
+    var notes = [];
+    if (p.tactile === true) notes.push('Tactile');
+    if (p.thick) notes.push('Thick canvas');
+    return notes.join(' · ');
   }
 
   function paypalLink(p) {
@@ -73,7 +94,7 @@
 
     var body = el('div', { 'class': 'card-body' });
     body.appendChild(el('h3', null, p.title));
-    if (canvasNote(p)) body.appendChild(el('p', { 'class': 'meta' }, canvasNote(p)));
+    if (cardNote(p)) body.appendChild(el('p', { 'class': 'meta' }, cardNote(p)));
 
     var row = el('div', { 'class': 'buy-row' });
     var price = el('div', { 'class': 'price' }, '$' + p.price);
@@ -93,7 +114,9 @@
   function render(groupKey) {
     var g = groups.filter(function (x) { return x.key === groupKey; })[0] || groups[0];
     grid.replaceChildren();
-    paintings.filter(g.test).forEach(function (p) { grid.appendChild(card(p)); });
+    var list = paintings.filter(g.test);
+    list.forEach(function (p) { grid.appendChild(card(p)); });
+    if (!list.length) grid.appendChild(el('p', { 'class': 'grid-empty' }, 'No paintings in this category yet.'));
     Array.prototype.forEach.call(filtersEl.children, function (c) {
       c.setAttribute('aria-pressed', String(c.dataset.key === g.key));
     });
@@ -101,7 +124,6 @@
 
   groups.forEach(function (g) {
     var count = paintings.filter(g.test).length;
-    if (!count) return;
     var chip = el('button', { 'class': 'chip', type: 'button', 'aria-pressed': 'false' }, g.label);
     chip.dataset.key = g.key;
     chip.appendChild(el('span', { 'class': 'n' }, '(' + count + ')'));
