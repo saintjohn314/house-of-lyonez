@@ -9,18 +9,18 @@ If it doesn't match, refund it in PayPal and don't ship.
 | `pink-lily` | Black Magenta Lily | 10x20 in | $100 | $10 | **$110** |
 | `lavender-rose` | Purple Lavender Rose | 10x20 in | $100 | $10 | **$110** |
 | `coral-blue-rose` | Pink & Blue Rose | 10x20 in | $100 | $10 | **$110** |
-| `crimson-dahlia` | Crimson Dahlia | 10x20 in | $120 | $10 | **$130** |
-| `golden-sunflower` | Golden Sunflower | 10x20 in | $120 | $10 | **$130** |
-| `midnight-rose` | Midnight Rose | 10x20 in | $120 | $10 | **$130** |
-| `piano-dreams` | Piano Dreams | 12x16 in | $120 | $10 | **$130** |
-| `butterfly-bloom` | Butterfly Bloom | 12x16 in | $120 | $10 | **$130** |
-| `desert-saguaro` | Desert Saguaro | 12x16 in | $120 | $10 | **$130** |
-| `heart-and-clock` | Heart & Clock | 11x14 in | $95 | $10 | **$105** |
-| `green-pterodactyl` | Green Pterodactyl | 11x14 in | $95 | $10 | **$105** |
-| `crimson-horizon` | Crimson Horizon | 14x11 in | $95 | $10 | **$105** |
-| `the-gathering` | The Gathering | 12x9 in | $75 | $10 | **$85** |
-| `sunflower-trio` | Sunflower Trio | 9x12 in | $75 | $10 | **$85** |
-| `orange-poppy` | Orange Poppy | 9x12 in | $75 | $10 | **$85** |
+| `crimson-dahlia` | Magenta Dahlia | 10x20 in | $100 | $10 | **$110** |
+| `golden-sunflower` | Golden Sunflower | 10x20 in | $100 | $10 | **$110** |
+| `midnight-rose` | Black Red Rose | 10x20 in | $100 | $10 | **$110** |
+| `piano-dreams` | Colosseum Dream | 12x16 in | $70 | $10 | **$80** |
+| `butterfly-bloom` | Heart of Sunflower | 12x16 in | $100 | $10 | **$110** |
+| `desert-saguaro` | Tactile Green Cactus | 12x16 in | $100 | $10 | **$110** |
+| `heart-and-clock` | Heal in Time | 11x14 in | $80 | $10 | **$90** |
+| `green-pterodactyl` | Tactile Pterodactyl | 11x14 in | $110 | $10 | **$120** |
+| `crimson-horizon` | Burning Skyline | 14x11 in | $70 | $10 | **$80** |
+| `the-gathering` | 2020 Vision | 12x9 in | $70 | $10 | **$80** |
+| `sunflower-trio` | Tactile Yellow Daisies | 9x12 in | $80 | $10 | **$90** |
+| `orange-poppy` | Tactile Red Yellow Tulip | 9x12 in | $80 | $10 | **$90** |
 | `red-tulip` | Red Tulip | 9x12 in | $75 | $10 | **$85** |
 | `purple-tulip` | Purple Tulip | 9x12 in | $75 | $10 | **$85** |
 | `rose-heart` | Rose Heart | 9x12 in | $75 | $10 | **$85** |
