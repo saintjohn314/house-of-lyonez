@@ -21,22 +21,22 @@ If it doesn't match, refund it in PayPal and don't ship.
 | `the-gathering` | 2020 Vision | 12x9 in | $70 | $10 | **$80** |
 | `sunflower-trio` | Tactile Yellow Daisies | 9x12 in | $80 | $10 | **$90** |
 | `orange-poppy` | Tactile Red Yellow Tulip | 9x12 in | $80 | $10 | **$90** |
-| `red-tulip` | Red Tulip | 9x12 in | $75 | $10 | **$85** |
-| `purple-tulip` | Purple Tulip | 9x12 in | $75 | $10 | **$85** |
-| `rose-heart` | Rose Heart | 9x12 in | $75 | $10 | **$85** |
-| `golden-wings` | Golden Wings | 10x8 in | $60 | $10 | **$70** |
-| `coral-daisy` | Coral Daisy | 10x8 in | $60 | $10 | **$70** |
-| `heart-on-blue` | Heart on Blue | 10x8 in | $60 | $10 | **$70** |
-| `purple-skull` | Purple Skull | 10x8 in | $60 | $10 | **$70** |
-| `bone-skull` | Bone Skull | 10x8 in | $60 | $10 | **$70** |
-| `blue-blossoms` | Blue Blossoms | 10x8 in | $60 | $10 | **$70** |
-| `carnation` | Carnation | 10x8 in | $60 | $10 | **$70** |
-| `night-clouds` | Night Clouds | 10x8 in | $60 | $10 | **$70** |
-| `violet-dahlia` | Violet Dahlia | 10x8 in | $60 | $10 | **$70** |
-| `lily-and-gramophone` | Lily & Gramophone | 10x8 in | $60 | $10 | **$70** |
-| `lion-sunflower-field` | Lion Sunflower Field | 10x8 in | $60 | $10 | **$70** |
-| `golden-heart` | Golden Heart | 10x8 in | $60 | $10 | **$70** |
-| `coral-bouquet` | Coral Bouquet | 10x8 in | $60 | $10 | **$70** |
+| `red-tulip` | Tactile Red Tulip | 9x12 in | $80 | $10 | **$90** |
+| `purple-tulip` | Tactile Purple Tulip | 9x12 in | $80 | $10 | **$90** |
+| `rose-heart` | Brain Heart | 9x12 in | $100 | $10 | **$110** |
+| `golden-wings` | My Potter | 10x8 in | $60 | $10 | **$70** |
+| `coral-daisy` | Red Striped Cosmo | 10x8 in | $60 | $10 | **$70** |
+| `heart-on-blue` | Tactile Red Heart | 10x8 in | $80 | $10 | **$90** |
+| `purple-skull` | Purple Cranium | 10x8 in | $80 | $10 | **$90** |
+| `bone-skull` | Skull | 10x8 in | $80 | $10 | **$90** |
+| `blue-blossoms` | Glow in the Dark Blue Cosmo | 10x8 in | $60 | $10 | **$70** |
+| `carnation` | Metallic Red Silver Carnation | 10x8 in | $60 | $10 | **$70** |
+| `night-clouds` | Zeppelin in the Skies | 10x8 in | $70 | $10 | **$80** |
+| `violet-dahlia` | Metallic Purple Dahlia | 10x8 in | $60 | $10 | **$70** |
+| `lily-and-gramophone` | Lily Gramophone | 10x8 in | $70 | $10 | **$80** |
+| `lion-sunflower-field` | Sun Lion | 10x8 in | $60 | $10 | **$70** |
+| `golden-heart` | Heart of Gold | 10x8 in | $60 | $10 | **$70** |
+| `coral-bouquet` | Glow in the Dark Peach Carnation | 10x8 in | $60 | $10 | **$70** |
 | `first-life` | First Life | 5x7 in thick | $45 | $5 | **$50** |
 | `little-one` | Little One | 5x7 in thick | $45 | $5 | **$50** |
 | `sheltered` | Sheltered | 5x7 in thick | $45 | $5 | **$50** |
