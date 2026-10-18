@@ -56,6 +56,7 @@ img { display: block; max-width: 100%; }
 .chip[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
 .chip .n { color: var(--muted); margin-left: 4px; font-size: .78rem; }
 .chip[aria-pressed="true"] .n { color: #cfc8bd; }
+.grid-empty { grid-column: 1 / -1; color: var(--muted); text-align: center; padding: 40px 0; }
 
 /* Grid */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 28px; }
