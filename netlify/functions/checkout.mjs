@@ -21,6 +21,10 @@ import {
 
 const LEGACY_PAYPAL_EMAIL = 'mmmeeezzzyyy@protonmail.com';
 
+// Countries she ships to. A buyer who picks a shipping address anywhere else in
+// PayPal is not charged and sees ship-us-only.html instead.
+const SHIP_TO_COUNTRIES = ['US'];
+
 export const config = {
   path: ['/api/checkout', '/api/paypal-return'],
   method: ['GET'],
@@ -102,6 +106,7 @@ async function startCheckout(url, site) {
 async function finishCheckout(url, site) {
   const problem = site + '/checkout-problem.html?from=checkout';
   const thanks = site + '/thanks.html?from=checkout';
+  const usOnly = site + '/ship-us-only.html?from=checkout';
   const orderId = url.searchParams.get('token') || '';
   if (!/^[A-Z0-9]{5,64}$/.test(orderId)) return redirect(problem);
 
@@ -139,6 +144,15 @@ async function finishCheckout(url, site) {
     console.error('Order not approved', orderId, order.status);
     return redirect(problem);
   }
+
+  // Only ship within the US: never charge for an address somewhere else.
+  const address = unit && unit.shipping && unit.shipping.address;
+  const country = address && typeof address.country_code === 'string' ? address.country_code.toUpperCase() : '';
+  if (country && !SHIP_TO_COUNTRIES.includes(country)) {
+    console.log('Not charging: shipping address outside the US', orderId, country);
+    return redirect(usOnly);
+  }
+  if (!country) console.warn('Order has no shipping country to check', orderId);
 
   // Reserve the painting so two buyers can't pay for the same one at once.
   const claim = await store.setJSON(saleKey, { order: orderId, status: 'paying', at: new Date().toISOString() }, { onlyIfNew: true });
