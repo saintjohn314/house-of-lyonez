@@ -5,10 +5,10 @@ If it doesn't match, refund it in PayPal and don't ship.
 
 | Item number | Painting | Size | Price | Shipping | Total |
 |---|---|---|---|---|---|
-| `white-rose` | White Rose | 10x20 in | $120 | $10 | **$130** |
-| `pink-lily` | Pink Lily | 10x20 in | $120 | $10 | **$130** |
-| `lavender-rose` | Lavender Rose | 10x20 in | $120 | $10 | **$130** |
-| `coral-blue-rose` | Coral & Blue Rose | 10x20 in | $120 | $10 | **$130** |
+| `white-rose` | White Rose | 10x20 in | $100 | $10 | **$110** |
+| `pink-lily` | Black Magenta Lily | 10x20 in | $100 | $10 | **$110** |
+| `lavender-rose` | Purple Lavender Rose | 10x20 in | $100 | $10 | **$110** |
+| `coral-blue-rose` | Pink & Blue Rose | 10x20 in | $100 | $10 | **$110** |
 | `crimson-dahlia` | Crimson Dahlia | 10x20 in | $120 | $10 | **$130** |
 | `golden-sunflower` | Golden Sunflower | 10x20 in | $120 | $10 | **$130** |
 | `midnight-rose` | Midnight Rose | 10x20 in | $120 | $10 | **$130** |
