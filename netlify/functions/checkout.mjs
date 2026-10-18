@@ -9,6 +9,9 @@
 //
 // Until the PayPal keys are set in Netlify (see ../lib/shop.mjs), Buy Now falls
 // back to the older PayPal link so the shop keeps working.
+//
+// Redirects to our own pages carry ?from=checkout so Netlify doesn't copy the
+// PayPal order details from the incoming address onto them.
 
 import { randomBytes, randomUUID } from 'node:crypto';
 import {
@@ -32,13 +35,13 @@ export default async (req, context) => {
     return await startCheckout(url, site);
   } catch (err) {
     console.error('Checkout error:', err && err.message ? err.message : err);
-    return redirect(site + '/checkout-problem.html');
+    return redirect(site + '/checkout-problem.html?from=checkout');
   }
 };
 
 // Step 1: Buy Now -> create the PayPal order at the site's price -> off to PayPal.
 async function startCheckout(url, site) {
-  const problem = site + '/checkout-problem.html';
+  const problem = site + '/checkout-problem.html?from=checkout';
   const painting = findPainting(url.searchParams.get('item'));
   const amounts = painting && priceOf(painting);
   if (!painting || !amounts || painting.sold) return redirect(problem);
@@ -97,8 +100,8 @@ async function startCheckout(url, site) {
 
 // Step 2: PayPal sends the buyer back here -> check everything -> take the payment.
 async function finishCheckout(url, site) {
-  const problem = site + '/checkout-problem.html';
-  const thanks = site + '/thanks.html';
+  const problem = site + '/checkout-problem.html?from=checkout';
+  const thanks = site + '/thanks.html?from=checkout';
   const orderId = url.searchParams.get('token') || '';
   if (!/^[A-Z0-9]{5,64}$/.test(orderId)) return redirect(problem);
 
