@@ -26,10 +26,10 @@
   // Size groups for the filter chips (in display order).
   var groups = [
     { key: 'all', label: 'All', test: function () { return true; } },
-    { key: 'large', label: 'Large (11×14 and up)', test: function (p) { return /^(10x20|12x16|11x14|14x11)/.test(p.size); } },
-    { key: 'medium', label: 'Medium (8×10 – 9×12)', test: function (p) { return /^(10x8|9x12|12x9)/.test(p.size); } },
-    { key: 'small', label: 'Small (5×7)', test: function (p) { return /^5x7/.test(p.size); } },
-    { key: 'mini', label: 'Mini (4×4 – 4×6)', test: function (p) { return /^4x/.test(p.size); } }
+    { key: 'large', label: 'Large', test: function (p) { return /^(10x20|12x16|11x14|14x11)/.test(p.size); } },
+    { key: 'medium', label: 'Medium', test: function (p) { return /^(10x8|9x12|12x9)/.test(p.size); } },
+    { key: 'small', label: 'Small', test: function (p) { return /^5x7/.test(p.size); } },
+    { key: 'mini', label: 'Mini', test: function (p) { return /^4x/.test(p.size); } }
   ];
 
   function el(tag, attrs, text) {
@@ -39,15 +39,16 @@
     return node;
   }
 
-  function prettySize(p) {
-    return p.size.replace('x', '×') + (p.thick ? ' · thick canvas' : '');
+  // Canvas sizes are kept in paintings.js for sorting, but not shown on the site.
+  function canvasNote(p) {
+    return p.thick ? 'Thick canvas' : '';
   }
 
   function paypalLink(p) {
     var params = new URLSearchParams({
       cmd: '_xclick',
       business: PAYPAL_EMAIL,
-      item_name: 'House Of Lyonez: ' + p.title + ' (' + p.size + ', original)',
+      item_name: 'House Of Lyonez: ' + p.title + ' (original)',
       item_number: p.id,
       amount: Number(p.price).toFixed(2),
       shipping: Number(p.shipping).toFixed(2),
@@ -72,7 +73,7 @@
 
     var body = el('div', { 'class': 'card-body' });
     body.appendChild(el('h3', null, p.title));
-    body.appendChild(el('p', { 'class': 'meta' }, prettySize(p)));
+    if (canvasNote(p)) body.appendChild(el('p', { 'class': 'meta' }, canvasNote(p)));
 
     var row = el('div', { 'class': 'buy-row' });
     var price = el('div', { 'class': 'price' }, '$' + p.price);
@@ -119,7 +120,7 @@
   function openLightbox(p) {
     lbImg.src = 'images/' + p.id + '.jpg';
     lbImg.alt = p.title;
-    lbCap.textContent = p.title + ' · ' + p.size.replace('x', '×') + ' · $' + p.price;
+    lbCap.textContent = p.title + ' · $' + p.price;
     lb.hidden = false;
     document.getElementById('lb-close').focus();
   }
