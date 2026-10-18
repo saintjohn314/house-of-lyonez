@@ -30,6 +30,8 @@ PayPal keys live in Netlify (**Project configuration > Environment variables**),
 
 After changing them, redeploy (**Deploys > Trigger deploy**). Until both keys are set, Buy Now uses the older PayPal link.
 
+Shipping is US only: if a buyer picks a shipping address outside the US in PayPal, checkout doesn't take the payment and shows `ship-us-only.html`. The list of countries is `SHIP_TO_COUNTRIES` in `netlify/functions/checkout.mjs`.
+
 ## Sales counter and reviews
 - Each sale is saved in Netlify Blobs (**Data & Storage > Blobs**, store `shop`), with no buyer details. The number at the bottom of the site counts paintings sold online plus any marked `sold: true`.
 - After paying, the buyer's thank-you page has a one-time form to leave a 1 to 5 star review. Reviews appear at the bottom of the site within a minute.

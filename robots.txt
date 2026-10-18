@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /api/
 Disallow: /thanks.html
 Disallow: /checkout-problem.html
+Disallow: /ship-us-only.html
