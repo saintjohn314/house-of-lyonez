@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'none'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="robots" content="noindex">
 <title>Thank You · House Of Lyonez</title>
@@ -17,9 +17,32 @@
     <h1>Thank You</h1>
     <div class="rule"></div>
     <p class="tagline">Your support means the world. Your original painting will be carefully wrapped and shipped within 3–5 business days. PayPal has emailed you a receipt.</p>
+    <section class="review-box" id="review-box" aria-labelledby="review-title" hidden>
+      <h2 id="review-title">How did we do?</h2>
+      <p>Leave a review now, or save this page and come back after your painting arrives. This link works once.</p>
+      <form class="review-form" id="review-form" novalidate>
+        <fieldset class="star-input">
+          <legend>Your rating</legend>
+          <div class="stars-row">
+            <input type="radio" name="rating" id="star5" value="5"><label for="star5" title="5 stars"><span aria-hidden="true">★</span><span class="sr-only">5 stars</span></label>
+            <input type="radio" name="rating" id="star4" value="4"><label for="star4" title="4 stars"><span aria-hidden="true">★</span><span class="sr-only">4 stars</span></label>
+            <input type="radio" name="rating" id="star3" value="3"><label for="star3" title="3 stars"><span aria-hidden="true">★</span><span class="sr-only">3 stars</span></label>
+            <input type="radio" name="rating" id="star2" value="2"><label for="star2" title="2 stars"><span aria-hidden="true">★</span><span class="sr-only">2 stars</span></label>
+            <input type="radio" name="rating" id="star1" value="1"><label for="star1" title="1 star"><span aria-hidden="true">★</span><span class="sr-only">1 star</span></label>
+          </div>
+        </fieldset>
+        <label for="review-name">Your name (optional)</label>
+        <input type="text" id="review-name" maxlength="40" autocomplete="given-name">
+        <label for="review-text">Your review (optional)</label>
+        <textarea id="review-text" maxlength="800" rows="4"></textarea>
+        <button type="submit" class="btn">Post review</button>
+        <p class="review-status" id="review-status" role="status"></p>
+      </form>
+    </section>
     <a href="./" class="btn">Back to House Of Lyonez</a>
     <p class="after-note">Questions? Email <a href="mailto:Esmegoof06@aol.com">Esmegoof06@aol.com</a> or message <a href="https://www.instagram.com/houseoflyonez/" target="_blank" rel="noopener noreferrer">@houseoflyonez</a></p>
   </div>
 </header>
+<script src="thanks.js"></script>
 </body>
 </html>

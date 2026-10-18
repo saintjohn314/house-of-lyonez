@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>House Of Lyonez · Original Paintings by Esmeralda</title>
 <meta name="description" content="Original hand-painted artwork by Esmeralda. Art for all who have a heart to perceive; vision or no vision.">
@@ -27,6 +27,7 @@
       <a href="#info" class="hide-sm">Shipping</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
+      <a href="#reviews" class="hide-sm">Reviews</a>
     </div>
   </div>
 </nav>
@@ -98,6 +99,20 @@
           <span class="c-label">Email</span><span class="c-val">Esmegoof06@aol.com</span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="section">
+    <div class="wrap">
+      <div class="sales-tracker" id="sales-tracker" hidden>
+        <span class="sales-number" id="sales-number"></span>
+        <span class="sales-label" id="sales-label">paintings sold</span>
+      </div>
+      <div class="section-head center">
+        <h2>Reviews</h2>
+        <p id="review-summary">No reviews yet. Customers can leave one after buying a painting.</p>
+      </div>
+      <div class="review-list" id="review-list"></div>
     </div>
   </section>
 </main>

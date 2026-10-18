@@ -1,7 +1,9 @@
 # Price Check List
 
+Checkout sets each price on the site's server, so buyers can't change it. This list is a backup check.
+
 When a PayPal payment comes in, find the **Item number** in the PayPal email and make sure the amount paid matches the **Total** below before shipping.
-If it doesn't match, refund it in PayPal and don't ship.
+If it doesn't match, refund it in PayPal and don't ship. If PayPal says a payment is pending, wait until it clears.
 
 | Item number | Painting | Size | Price | Shipping | Total |
 |---|---|---|---|---|---|

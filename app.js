@@ -8,8 +8,6 @@
     return;
   }
 
-  var PAYPAL_EMAIL = 'mmmeeezzzyyy@protonmail.com';
-  var SITE_URL = location.origin + location.pathname.replace(/[^\/]*$/, '');
   var paintings = Array.isArray(window.PAINTINGS) ? window.PAINTINGS : [];
 
   // Guarantee each painting appears only once.
@@ -65,20 +63,10 @@
     return notes.join(' · ');
   }
 
-  function paypalLink(p) {
-    var params = new URLSearchParams({
-      cmd: '_xclick',
-      business: PAYPAL_EMAIL,
-      item_name: 'House Of Lyonez: ' + p.title + ' (original)',
-      item_number: p.id,
-      amount: Number(p.price).toFixed(2),
-      shipping: Number(p.shipping).toFixed(2),
-      currency_code: 'USD',
-      no_shipping: '2', // require a shipping address
-      return: SITE_URL + 'thanks.html',
-      cancel_return: SITE_URL + '#gallery'
-    });
-    return 'https://www.paypal.com/cgi-bin/webscr?' + params.toString();
+  // Buy Now goes to the site's own checkout (netlify/functions/checkout.mjs). It looks up
+  // the price on the server and sends the buyer to PayPal, so the price can't be edited.
+  function checkoutLink(p) {
+    return '/api/checkout?item=' + encodeURIComponent(p.id);
   }
 
   function card(p) {
@@ -101,9 +89,9 @@
     price.appendChild(el('small', null, '+ $' + p.shipping + ' shipping'));
     row.appendChild(price);
 
-    var buy = el('a', { 'class': 'buy', target: '_blank', rel: 'noopener noreferrer' }, p.sold ? 'Sold' : 'Buy Now');
+    var buy = el('a', { 'class': 'buy', target: '_blank', rel: 'nofollow noopener noreferrer' }, p.sold ? 'Sold' : 'Buy Now');
     if (p.sold) buy.setAttribute('aria-disabled', 'true');
-    else buy.href = paypalLink(p);
+    else buy.href = checkoutLink(p);
     row.appendChild(buy);
 
     body.appendChild(row);
@@ -111,8 +99,10 @@
     return art;
   }
 
+  var currentKey = 'all';
   function render(groupKey) {
     var g = groups.filter(function (x) { return x.key === groupKey; })[0] || groups[0];
+    currentKey = g.key;
     grid.replaceChildren();
     var list = paintings.filter(g.test);
     list.forEach(function (p) { grid.appendChild(card(p)); });
@@ -150,4 +140,75 @@
   document.getElementById('lb-close').addEventListener('click', closeLightbox);
   lb.addEventListener('click', function (e) { if (e.target === lb) closeLightbox(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLightbox(); });
+
+  // Sales counter, SOLD badges and reviews come from the shop's server
+  // (netlify/functions/shop-stats.mjs). The gallery works fine without them.
+  var salesTracker = document.getElementById('sales-tracker');
+  var salesNumber = document.getElementById('sales-number');
+  var salesLabel = document.getElementById('sales-label');
+  var reviewSummary = document.getElementById('review-summary');
+  var reviewList = document.getElementById('review-list');
+
+  function starText(n) {
+    var s = '';
+    for (var i = 1; i <= 5; i++) s += i <= n ? '★' : '☆';
+    return s;
+  }
+
+  function monthYear(iso) {
+    var d = new Date(String(iso) + 'T12:00:00Z');
+    return isNaN(d) ? '' : d.toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
+  }
+
+  function showSold(ids) {
+    if (!Array.isArray(ids)) return;
+    var changed = false;
+    paintings.forEach(function (p) {
+      if (!p.sold && ids.indexOf(p.id) !== -1) { p.sold = true; changed = true; }
+    });
+    if (changed) render(currentKey);
+  }
+
+  function showSales(n) {
+    if (!salesTracker || !(n > 0)) return;
+    salesNumber.textContent = String(n);
+    salesLabel.textContent = n === 1 ? 'painting sold' : 'paintings sold';
+    salesTracker.hidden = false;
+  }
+
+  function showReviews(data) {
+    var reviews = Array.isArray(data.reviews) ? data.reviews : [];
+    if (!reviewList || !reviewSummary || !reviews.length) return;
+    var avg = Number(data.averageRating) || 0;
+    var count = Number(data.reviewCount) || reviews.length;
+    reviewSummary.replaceChildren(
+      el('span', { 'class': 'stars', 'aria-hidden': 'true' }, starText(Math.round(avg))),
+      el('span', null, ' ' + avg.toFixed(1) + ' out of 5 from ' + count + (count === 1 ? ' review' : ' reviews'))
+    );
+    reviewList.replaceChildren();
+    reviews.forEach(function (r) {
+      var rating = Math.max(1, Math.min(5, Math.round(Number(r.rating) || 0)));
+      var item = el('article', { 'class': 'review' });
+      item.appendChild(el('p', { 'class': 'stars', role: 'img', 'aria-label': rating + ' out of 5 stars' }, starText(rating)));
+      if (r.text) item.appendChild(el('p', { 'class': 'review-text' }, String(r.text)));
+      item.appendChild(el('p', { 'class': 'review-by' }, String(r.name || 'Verified buyer')));
+      var meta = [];
+      if (r.painting) meta.push('Bought ' + r.painting);
+      if (monthYear(r.date)) meta.push(monthYear(r.date));
+      if (meta.length) item.appendChild(el('p', { 'class': 'review-meta' }, meta.join(' · ')));
+      reviewList.appendChild(item);
+    });
+  }
+
+  if (window.fetch) {
+    fetch('/api/shop-stats', { headers: { Accept: 'application/json' } })
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        showSold(data.sold);
+        showSales(Number(data.sales) || 0);
+        showReviews(data);
+      })
+      .catch(function () { /* not available right now; the shop still works */ });
+  }
 })();
