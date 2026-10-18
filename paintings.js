@@ -16,7 +16,7 @@ window.PAINTINGS = [
   { id: "butterfly-bloom", title: "Heart of Sunflower", size: "12x16 in", thick: false, tactile: false, cats: ["flowers", "anatomy"], price: 100, shipping: 10, sold: false },
   { id: "desert-saguaro", title: "Green Cactus", size: "12x16 in", thick: false, tactile: true, cats: ["surreal"], price: 100, shipping: 10, sold: false },
   { id: "heart-and-clock", title: "Heal in Time", size: "11x14 in", thick: false, tactile: false, cats: ["flowers", "anatomy"], price: 80, shipping: 10, sold: false },
-  { id: "green-pterodactyl", title: "Pterodactyl", size: "11x14 in", thick: false, tactile: true, cats: ["surreal"], price: 110, shipping: 10, sold: false },
+  { id: "green-pterodactyl", title: "Pterodactyl", size: "11x14 in", thick: false, tactile: true, cats: ["surreal"], price: 100, shipping: 10, sold: false },
   { id: "crimson-horizon", title: "Burning Skyline", size: "14x11 in", thick: false, tactile: false, cats: ["surreal"], price: 70, shipping: 10, sold: false },
   { id: "the-gathering", title: "2020 Vision", size: "12x9 in", thick: false, tactile: false, cats: ["surreal"], price: 70, shipping: 10, sold: false },
   { id: "sunflower-trio", title: "Yellow Daisies", size: "9x12 in", thick: false, tactile: true, cats: ["flowers"], price: 80, shipping: 10, sold: false },
