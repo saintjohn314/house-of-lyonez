@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /api/
+Disallow: /thanks.html
+Disallow: /checkout-problem.html

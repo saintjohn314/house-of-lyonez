@@ -1,0 +1,8 @@
+{
+  "name": "house-of-lyonez",
+  "private": true,
+  "description": "House Of Lyonez art shop. Static site plus Netlify Functions for checkout, sales, and reviews.",
+  "dependencies": {
+    "@netlify/blobs": "10.7.13"
+  }
+}

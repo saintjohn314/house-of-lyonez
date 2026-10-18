@@ -1,10 +1,13 @@
 // House Of Lyonez inventory.
 // To edit a painting: change its title, price, or shipping below.
 // To mark one sold: change  sold: false  to  sold: true
+//   (paintings bought through the site are marked sold automatically)
 // tactile: true  shows a "Tactile" label and puts it in the Tactile filter.
 // cats: the filters it appears in: "flowers", "anatomy", "surreal" (one or more).
 // Image for each painting lives at images/<id>.jpg
-window.PAINTINGS = [
+// Checkout reads prices from this file on the server, so what a buyer pays
+// always matches the price here.
+var PAINTINGS = [
   { id: "white-rose", title: "White Rose", size: "10x20 in", thick: false, tactile: true, cats: ["flowers"], price: 100, shipping: 10, sold: false },
   { id: "pink-lily", title: "Black Magenta Lily", size: "10x20 in", thick: false, tactile: true, cats: ["flowers"], price: 100, shipping: 10, sold: false },
   { id: "lavender-rose", title: "Purple Lavender Rose", size: "10x20 in", thick: false, tactile: true, cats: ["flowers"], price: 100, shipping: 10, sold: false },
@@ -68,3 +71,7 @@ window.PAINTINGS = [
   { id: "emerald-star", title: "Floral Yellow Green I", size: "4x4 in", thick: true, tactile: true, cats: ["flowers"], price: 30, shipping: 5, sold: false },
   { id: "emerald-mosaic", title: "Floral Yellow Green II", size: "4x4 in", thick: true, tactile: true, cats: ["flowers"], price: 30, shipping: 5, sold: false },
 ];
+
+// Shared by the gallery (browser) and the checkout (netlify/functions).
+if (typeof window !== 'undefined') window.PAINTINGS = PAINTINGS;
+if (typeof module !== 'undefined' && module.exports) module.exports = PAINTINGS;

@@ -1,0 +1,6 @@
+# Netlify settings for House Of Lyonez.
+# Build and publish settings stay in the Netlify dashboard.
+# PayPal keys go in Project configuration > Environment variables (see netlify/lib/shop.mjs).
+
+[functions]
+  node_bundler = "esbuild"
