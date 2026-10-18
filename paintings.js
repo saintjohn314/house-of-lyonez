@@ -3,10 +3,10 @@
 // To mark one sold: change  sold: false  to  sold: true
 // Image for each painting lives at images/<id>.jpg
 window.PAINTINGS = [
-  { id: "white-rose", title: "White Rose", size: "10x20 in", thick: false, price: 120, shipping: 10, sold: false },
-  { id: "pink-lily", title: "Pink Lily", size: "10x20 in", thick: false, price: 120, shipping: 10, sold: false },
-  { id: "lavender-rose", title: "Lavender Rose", size: "10x20 in", thick: false, price: 120, shipping: 10, sold: false },
-  { id: "coral-blue-rose", title: "Coral & Blue Rose", size: "10x20 in", thick: false, price: 120, shipping: 10, sold: false },
+  { id: "white-rose", title: "White Rose", size: "10x20 in", thick: false, price: 100, shipping: 10, sold: false },
+  { id: "pink-lily", title: "Black Magenta Lily", size: "10x20 in", thick: false, price: 100, shipping: 10, sold: false },
+  { id: "lavender-rose", title: "Purple Lavender Rose", size: "10x20 in", thick: false, price: 100, shipping: 10, sold: false },
+  { id: "coral-blue-rose", title: "Pink & Blue Rose", size: "10x20 in", thick: false, price: 100, shipping: 10, sold: false },
   { id: "crimson-dahlia", title: "Crimson Dahlia", size: "10x20 in", thick: false, price: 120, shipping: 10, sold: false },
   { id: "golden-sunflower", title: "Golden Sunflower", size: "10x20 in", thick: false, price: 120, shipping: 10, sold: false },
   { id: "midnight-rose", title: "Midnight Rose", size: "10x20 in", thick: false, price: 120, shipping: 10, sold: false },
