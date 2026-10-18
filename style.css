@@ -70,7 +70,8 @@ img { display: block; max-width: 100%; }
 .card-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
 .card h3 { font-size: 1.3rem; font-weight: 600; line-height: 1.2; }
 .meta { color: var(--muted); font-size: .8rem; }
-.buy-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); margin-top: 14px; }
+.buy-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+.card-body > :nth-last-child(2) { margin-bottom: 14px; } /* space above the price row; keeps Buy buttons lined up when titles wrap */
 .price { font-weight: 600; font-size: 1.15rem; line-height: 1.2; }
 .price small { display: block; font-weight: 400; font-size: .72rem; color: var(--muted); white-space: nowrap; }
 .buy { background: var(--paypal); color: #fff; text-decoration: none; font-size: .84rem; font-weight: 600; padding: 10px 16px; border-radius: 8px; white-space: nowrap; }
