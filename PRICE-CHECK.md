@@ -16,7 +16,7 @@ If it doesn't match, refund it in PayPal and don't ship.
 | `butterfly-bloom` | Heart of Sunflower | 12x16 in | $100 | $10 | **$110** |
 | `desert-saguaro` | Green Cactus | 12x16 in | $100 | $10 | **$110** |
 | `heart-and-clock` | Heal in Time | 11x14 in | $80 | $10 | **$90** |
-| `green-pterodactyl` | Pterodactyl | 11x14 in | $110 | $10 | **$120** |
+| `green-pterodactyl` | Pterodactyl | 11x14 in | $100 | $10 | **$110** |
 | `crimson-horizon` | Burning Skyline | 14x11 in | $70 | $10 | **$80** |
 | `the-gathering` | 2020 Vision | 12x9 in | $70 | $10 | **$80** |
 | `sunflower-trio` | Yellow Daisies | 9x12 in | $80 | $10 | **$90** |
